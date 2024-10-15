@@ -7,10 +7,118 @@
     <meta name ="keywords" content="HTML, CSS, meta examples">
     <meta name="author" content="Vadim">
     <meta name="description" content="meta description">
-    <meta http-equiv="refresh" content="1800"> <!-- обновление каждые 30 минут -->
+    <meta http-equiv="refresh" content="15000; url=http://www.test.com/"> <!-- обновление страницы/перенаправление на другую -->
+    <!-- может принять как спам, лучше использовать HTTP 301 -->
+
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- страница 76 — основные элементы HTML5 блочного уровня  -->
+    <!-- &nbsp; &ndash; &mdash;-->
+
+    <h1>Загловок текста</h1>
+    <p>Перый абзац текста</p>
+    <p>Второй абзац</p>
+
+    <!-- Блок цитат -->
+     <h2>Вдохновение...</h2>
+     <p>В какой-то момент Гоббс понял, что не может быть ощущения без движения:</p>
+     <blockquote>
+        Если бы в мире ничего не двигалось, то никто бы ничего не ощущал.
+     </blockquote>
+        <p>И поэтому он быстро переходит к выводу:</p>
+        <blockquote>
+            Ощущение — это и есть движение.
+        </blockquote>
+
+    <hr width="40%" align="left"> <!-- горизонтальная линия -->
+
+    <!-- Нумерованный список -->
+     <h3>Нумерованный список</h3>
+     <ol>
+        <li>Пример один</li>
+        <li>Пример два</li>
+        <li>Пример три</li>
+     </ol>
+
+    <!-- Маркированный список -->
+     <h3>Маркированный список</h3>
+     <ul>
+        <li>Пример один</li>
+        <li>Пример два</li>
+     </ul>
+
+    <!-- Список определений -->
+     <h3>Список определений</h3>
+     <dl>
+        <dt>SGML</dt>
+            <dd>Стандартный обобщенный язык разметки</dd>
+        <dt>HTML</dt>
+            <dd>Гипертекстовый язык разметки</dd>
+        <dt>XML</dt>
+            <dd>Расширяемый язык разметки</dd>
+     </dl>
+
+    <!-- Вложенный список -->
+     <h3>Вложенный список</h3>
+     <ol>
+        <li>Пример один
+            <ul>
+                <li>first</li>
+                <li>second</li>
+            </ul>
+        </li>
+        <li>Пример два
+            <ul>
+                <li>first</li>
+                <li>second</li>
+            </ul>
+        </li>
+     </ol>
+
+    <!-- Таблица -->
+     <h3>Table examples</h3>
+     <table border="1">
+        <caption>Таблица 1.1 — Табличная разметка</caption>
+        <colgroup>
+            <col style="background-color: orange; font-size: 120%;">
+            <col style="background-color: gray; color: white;">
+        </colgroup>
+        <thead>
+            <tr><th colspan="2">Табличная разметка</th></tr>
+            <tr><th>Элемент</th><th>Описание</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>table</td><td>Общий контейнер</td></tr>
+            <tr><td>caption</td><td>Текст заголовка</td></tr>
+            <tr><td>tbody</td><td>Контейнер тела</td></tr>
+            <tr><td>tfoot</td><td>Контейнер колонтитула</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><th>Элемент</th><th>Описание</th></tr>
+        </tfoot>
+     </table>
+
+     <br />
+
+    <!-- Объединение ячеек -->
+     <table border="1">
+        <caption>Таблица 1.2 — Объединение ячеек</caption>
+        <tr><td colspan="4">&nbsp;1&nbsp;</td></tr>
+        <tr><td rowspan="3">&nbsp;2&nbsp;</td>
+            <td rowspan="3">&nbsp;3&nbsp;</td></tr>
+        <tr><td colspan="2">&nbsp;4&nbsp;</td></tr>
+        <tr><td>&nbsp;5&nbsp;</td><td>&nbsp;6&nbsp;</td></tr>
+        <tr><td colspan="4">&nbsp;7&nbsp;</td></tr>
+     </table>
+
+    <!--  -->
+     
+
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
 </body>
 </html>

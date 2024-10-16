@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../css/SignIn.css'
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
@@ -8,8 +9,8 @@ const SignIn = () => {
     
     const navigate = useNavigate();
 
-    const validEmail = 'admin@example.com';
-    const validPassword = 'password123';
+    const validEmail = 'example@mail.com';
+    const validPassword = 'passwd1';
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,53 +35,28 @@ const SignIn = () => {
     };
 
     return (
-        <div style={styles.container}>
-            <form onSubmit={handleSubmit} style={styles.form}>
-                <h2>Sign In</h2>
-                {error && <p style={styles.error}>{error}</p>}
-                <input
-                    type="text"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    style={styles.input}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    style={styles.input}
-                />
+        <div className='wrapper'>
+            <form onSubmit={handleSubmit} className='form'>
+                <h1>Sign In</h1>
+
+                {error && <p className='error-msg'>{error}</p>}
+                
+                <div className='input-box' >
+                    <input type='email' placeholder='E-mail' value={email}
+                    onChange={(e) => setEmail(e.target.value)} />
+                </div>
+
+                <div className='input-box' >
+                    <input type="password" placeholder="Password" value={password}
+                    onChange={(e) => setPassword(e.target.value)} />
+                </div>
+
                 <button type="submit" disabled={!email || !password}>
                     Sign In
                 </button>
             </form>
         </div>
     );
-};
-
-const styles = {
-    container: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-    },
-    form: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '300px',
-        textAlign: 'center',
-    },
-    input: {
-        margin: '10px 0',
-        padding: '10px',
-        fontSize: '16px',
-    },
-    error: {
-        color: 'red',
-    },
 };
 
 export default SignIn;

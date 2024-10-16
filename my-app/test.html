@@ -112,11 +112,95 @@
         <tr><td colspan="4">&nbsp;7&nbsp;</td></tr>
      </table>
 
-    <!--  -->
-     
+    <!-- Поля ввода данных -->
+    <form method="post">
+        <hr />
+        <h3>Поле ввода данных</h3>
+        <input type="hidden" name="e-mail" value="ex@test.com">
+        <ul style="list-style-type: none;">
+            <li>Firstname: 
+                <input 
+                type="text" 
+                name="firstname" 
+                id="firstname"
+                size="30"
+                maxlength="25">
+            </li>
+            <li>LastName: 
+                <input 
+                type="text" 
+                name="lastname" 
+                id="lastname"
+                size="30"
+                maxlength="25">
+            </li>
+            <li>Password: 
+                <input 
+                type="password" 
+                name="passwd" 
+                id="passwd"
+                size="30"
+                maxlength="25">
+            </li>
+        </ul>
+        
+        <!-- checkbox & radio -->
+        <h3>Ur favorite food?</h3>
+        <p><input 
+            type="checkbox" 
+            name="food" 
+            value="pizza"
+            checked="checked">
+        Pizza
+        </p>
+        <p><input 
+            type="checkbox" 
+            name="food" 
+            value="icecream"
+            checked="checked">
+        Ice cream
+        </p>
+        <p><input 
+            type="checkbox" 
+            name="food" 
+            value="rolls"
+            checked="checked">
+        Rolls
+        </p>
+        <p>Sex</p>
+        <p><input type="radio" name="gender" id="male">Male</p>
+        <p><input type="radio" name="gender" id="female">Female</p>
 
-    <!--  -->
-    <!--  -->
+        <!-- file -->
+        <h3>Downloading file</h3>
+        <input type="file" name="file" id="file">
+
+        <!-- list -->
+         <p>Ur favorite food?</p>
+         <select name="food" id="food">
+            <option value="pizza" selected>Pizza</option>
+            <option value="icecream">Ice Cream</option>
+            <option value="rolls">Rolls</option>
+         </select>
+
+         <!-- text-area -->
+          <p>Произвольные комментарии</p>
+          <textarea name="comments" id="comments" rows="10" cols="40">
+            ...комментарии...
+          </textarea>
+
+        <!-- buttons -->
+        <p style="line-height: 2em; margin: 2em;">
+           <input type="submit" value="Submit">
+           <input type="reset" value="Reset"> 
+        </p>
+        <hr />
+    </form>
+
+    <!-- https://www.w3schools.com/js/default.asp -->
+    <!-- https://learn.javascript.ru/first-steps -->
+    <!-- http://javascript.ru/tutorial -->
+
     <!--  -->
     <!--  -->
 

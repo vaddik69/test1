@@ -9,8 +9,9 @@ const SignIn = () => {
     
     const navigate = useNavigate();
 
-    const validEmail = 'example@mail.com';
-    const validPassword = 'passwd1';
+    const validEmail = 'admin@example.com';
+    const validPassword = 'password123';
+    const EMAIL_REGEXP = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,15 +19,14 @@ const SignIn = () => {
             setError('Email is required');
             return;
         }
-        if (!/\S+@\S+\.\S+/.test(email)) {
-            setError('Incorrect email format');
-            return;
-        }
         if (!password) {
             setError('Password is required');
             return;
         }
-
+        if (!EMAIL_REGEXP.test(email)) {
+            setError('Incorrect email format');
+            return;
+        }
         if (email === validEmail && password === validPassword) {
             navigate('/dashboard');
         } else {
@@ -42,13 +42,15 @@ const SignIn = () => {
                 {error && <p className='error-msg'>{error}</p>}
                 
                 <div className='input-box' >
-                    <input type='email' placeholder='E-mail' value={email}
-                    onChange={(e) => setEmail(e.target.value)} />
+                    <input type='text' placeholder='E-mail' value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onFocus={(e) => e.target.setSelectionRange(email.length, email.length)} />
                 </div>
 
                 <div className='input-box' >
                     <input type="password" placeholder="Password" value={password}
-                    onChange={(e) => setPassword(e.target.value)} />
+                    onChange={(e) => setPassword(e.target.value)}
+                    onFocus={(e) => e.target.setSelectionRange(password.length, password.length)} />
                 </div>
 
                 <button type="submit" disabled={!email || !password}>

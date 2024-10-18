@@ -12,8 +12,8 @@ const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/signin" element={<SignIn setIsAuthenticated={setIsAuthenticated}/>} />
-                <Route path='/admin/signin' element={<AdminSignIn />} />
+                <Route path="/signin" element={<SignIn setIsAuthenticated={setIsAuthenticated} />} />
+                <Route path='/admin/signin' element={<AdminSignIn setIsAuthenticated={setIsAuthenticated} />} />
                 <Route
                     path="/dashboard"
                     element={<ProtectedRoute element={<Dashboard />} isAuthenticated={isAuthenticated} />}

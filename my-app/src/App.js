@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import SignIn from './components/SignIn';
 import Dashboard from './components/Dashboard';
 
@@ -9,7 +9,7 @@ const App = () => {
             <Routes>
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/" element={<SignIn />} />
+                <Route path="*" element={<Navigate to="/signin" />} />
             </Routes>
         </Router>
     );

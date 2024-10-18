@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import '../css/SignIn.css'
+import '../css/AdminSignIn.css'
 
-const SignIn = () => {
+const AdminSignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     
     const navigate = useNavigate();
 
-    const validEmail = 'user@example.com';
-    const validPassword = 'password456';
+    const validEmail = 'admin@example.com';
+    const validPassword = 'password123';
     const EMAIL_REGEXP = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const handleSubmit = (e) => {
@@ -28,7 +28,7 @@ const SignIn = () => {
             return;
         }
         if (email === validEmail && password === validPassword) {
-            navigate('/dashboard');
+            navigate('/admin/dashboard');
         } else {
             setError('Incorrect email or password');
         }
@@ -57,10 +57,10 @@ const SignIn = () => {
                     Sign In
                 </button>
 
-                <Link className='link-admin' to='/admin/signin'>Sign in as admin</Link>
+                <Link className='link-user' to='/signin'>Sign in as user</Link>
             </form>
         </div>
     );
 };
 
-export default SignIn;
+export default AdminSignIn;

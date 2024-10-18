@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../css/AdminSignIn.css'
 
-const AdminSignIn = () => {
+const AdminSignIn = ({ setIsAuthenticated }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -28,6 +28,7 @@ const AdminSignIn = () => {
             return;
         }
         if (email === validEmail && password === validPassword) {
+            setIsAuthenticated(true);
             navigate('/admin/dashboard');
         } else {
             setError('Incorrect email or password');

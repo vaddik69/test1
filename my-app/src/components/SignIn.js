@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../css/SignIn.css';
 
-const SignIn = ({ setIsAuthenticated }) => {
+const SignIn = () => {
+    const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -28,7 +29,13 @@ const SignIn = ({ setIsAuthenticated }) => {
             return;
         }
         if (email === validEmail && password === validPassword) {
-            setIsAuthenticated(true);
+            setUser({
+                email: email,
+                password: password,
+                roles: "user",
+                id: "1"
+            });
+            localStorage.setItem('user', JSON.stringify(user));
             navigate('/dashboard');
         } else {
             setError('Incorrect email or password');

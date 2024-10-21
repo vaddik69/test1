@@ -4,24 +4,26 @@ import SignIn from './components/SignIn';
 import Dashboard from './components/Dashboard';
 import AdminSignIn from './components/AdminSignIn';
 import AdminDashboard from './components/AdminDasboard';
-import ProtectedRoute from './components/ProtectedRoute';
+import AuthenticatedRoute from './components/AuthenticatedRoute';
+
+const user = JSON.parse(localStorage.getItem('user'));
+const admin = JSON.parse(localStorage.getItem('admin'));
 
 const App = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     return (
         <Router>
             <Routes>
-                <Route path="/signin" element={<SignIn setIsAuthenticated={setIsAuthenticated} />} />
-                <Route path='/admin/signin' element={<AdminSignIn setIsAuthenticated={setIsAuthenticated} />} />
-                <Route
-                    path="/dashboard"
-                    element={<ProtectedRoute element={<Dashboard />} isAuthenticated={isAuthenticated} />}
-                />
-                <Route
-                    path="/admin/dashboard"
-                    element={<ProtectedRoute element={<AdminDashboard />} isAuthenticated={isAuthenticated} />}
-                />
+                {/* <AnonymousRoute> */}
+                    <Route path="/signin" element={<SignIn />} />
+                    <Route path='/admin/signin' element={<AdminSignIn />} />
+                {/* </AnonymousRoute> */}
+
+                <Route element={ <AuthenticatedRoute /> }>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                </Route>
+
                 <Route path="*" element={<Navigate to="/signin" />} />
             </Routes>
         </Router>

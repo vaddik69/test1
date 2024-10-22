@@ -5,19 +5,17 @@ import Dashboard from './components/Dashboard';
 import AdminSignIn from './components/AdminSignIn';
 import AdminDashboard from './components/AdminDasboard';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
-
-const user = JSON.parse(localStorage.getItem('user'));
-const admin = JSON.parse(localStorage.getItem('admin'));
+import AnonymousRoute from './components/AnonymousRoute';
 
 const App = () => {
 
     return (
         <Router>
             <Routes>
-                {/* <AnonymousRoute> */}
+                <Route element={ <AnonymousRoute /> }>
                     <Route path="/signin" element={<SignIn />} />
                     <Route path='/admin/signin' element={<AdminSignIn />} />
-                {/* </AnonymousRoute> */}
+                </Route>
 
                 <Route element={ <AuthenticatedRoute /> }>
                     <Route path="/dashboard" element={<Dashboard />} />

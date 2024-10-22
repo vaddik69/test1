@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../css/AdminSignIn.css'
 
-const AdminSignIn = ({ setIsAuthenticated }) => {
+const AdminSignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -28,7 +28,21 @@ const AdminSignIn = ({ setIsAuthenticated }) => {
             return;
         }
         if (email === validEmail && password === validPassword) {
-            setIsAuthenticated(true);
+            let checkUser = JSON.parse(localStorage.getItem('admin'));
+
+            if (!checkUser) {
+                let user = {
+                    email: email,
+                    password: password,
+                    roles: "admin",
+                    id: "1"
+                };
+
+                localStorage.setItem('admin', JSON.stringify(user));
+            } else {
+                checkUser.id = '1';
+                localStorage.setItem('admin', JSON.stringify(checkUser));
+            }
             navigate('/admin/dashboard');
         } else {
             setError('Incorrect email or password');
@@ -58,7 +72,7 @@ const AdminSignIn = ({ setIsAuthenticated }) => {
                     Sign In
                 </button>
 
-                <Link className='link-user' to='/signin'>Sign in as user</Link>
+                <Link className='link-user' to='/signin' onClick={localStorage.setItem('whoIs', 'admin')}>Sign in as user</Link>
             </form>
         </div>
     );

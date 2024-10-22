@@ -1,9 +1,12 @@
 import React from 'react';
 import '../css/AdminDashboard.css'
+import Header from './Header';
 
 const AdminDashboard = () => {
     return (
-        <div className='dash'>Admin Dashboard</div>
+        <div>
+            <Header title='Admin Dashboard' logoutPath='/admin/signin' user='admin' />
+        </div>
     );
 };
 

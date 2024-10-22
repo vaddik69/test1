@@ -1,15 +1,23 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
-const user = JSON.parse(localStorage.getItem('user'));
-// console.log(user.id);
+const AuthenticatedRoute = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const admin = JSON.parse(localStorage.getItem('admin'));
 
-const AuthenticatedRoute = ({ children }) => {
-    if (user.id !== '1' || user.roles !== 'user') {
-        return <Navigate to='/signin' replace />;
+    let whoIs = localStorage.getItem('whoIs');
+    if (!whoIs) { whoIs = 'user'; }
+
+    
+    if (whoIs === 'user') {
+        return (user.roles.includes('user') && user.id === '1') 
+                        ? <Outlet /> : <Navigate to='/signin' />;
+
+    } else if (whoIs === 'admin') {
+        return (admin.roles.includes('admin') && admin.id === '1') 
+                        ? <Outlet /> : <Navigate to='/admin/signin' />;
     }
 
-    return children ? children : <Outlet />;
 };
 
 export default AuthenticatedRoute;

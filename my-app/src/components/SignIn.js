@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import '../css/SignIn.css';
 
 const SignIn = () => {
-    const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -29,13 +28,21 @@ const SignIn = () => {
             return;
         }
         if (email === validEmail && password === validPassword) {
-            setUser({
-                email: email,
-                password: password,
-                roles: "user",
-                id: "1"
-            });
-            localStorage.setItem('user', JSON.stringify(user));
+            let checkUser = JSON.parse(localStorage.getItem('user'));
+
+            if (!checkUser) {
+                let user = {
+                    email: email,
+                    password: password,
+                    roles: "user",
+                    id: "1"
+                };
+
+                localStorage.setItem('user', JSON.stringify(user));
+            } else {
+                checkUser.id = '1';
+                localStorage.setItem('user', JSON.stringify(checkUser));
+            }
             navigate('/dashboard');
         } else {
             setError('Incorrect email or password');
@@ -65,7 +72,7 @@ const SignIn = () => {
                     Sign In
                 </button>
 
-                <Link className='link-admin' to='/admin/signin'>Sign in as admin</Link>
+                <Link className='link-admin' to='/admin/signin' onClick={localStorage.setItem('whoIs', 'user')}>Sign in as admin</Link>
             </form>
         </div>
     );

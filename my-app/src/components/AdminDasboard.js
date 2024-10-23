@@ -5,7 +5,7 @@ import Header from './Header';
 const AdminDashboard = () => {
     return (
         <div>
-            <Header title='Admin Dashboard' logoutPath='/admin/signin' user='admin' />
+            <Header title='Admin Dashboard' logoutPath='/admin/signin' />
         </div>
     );
 };

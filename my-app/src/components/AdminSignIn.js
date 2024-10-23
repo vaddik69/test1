@@ -28,21 +28,8 @@ const AdminSignIn = () => {
             return;
         }
         if (email === validEmail && password === validPassword) {
-            let checkUser = JSON.parse(localStorage.getItem('admin'));
-
-            if (!checkUser) {
-                let user = {
-                    email: email,
-                    password: password,
-                    roles: "admin",
-                    id: "1"
-                };
-
-                localStorage.setItem('admin', JSON.stringify(user));
-            } else {
-                checkUser.id = '1';
-                localStorage.setItem('admin', JSON.stringify(checkUser));
-            }
+                localStorage.setItem('userRole', 'admin');
+                localStorage.setItem('isAuth', true);
             navigate('/admin/dashboard');
         } else {
             setError('Incorrect email or password');
@@ -72,7 +59,7 @@ const AdminSignIn = () => {
                     Sign In
                 </button>
 
-                <Link className='link-user' to='/signin' onClick={localStorage.setItem('whoIs', 'admin')}>Sign in as user</Link>
+                <Link className='link-user' to='/signin'>Sign in as user</Link>
             </form>
         </div>
     );

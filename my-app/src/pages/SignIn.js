@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../css/SignIn.css';
 import SignInForm from '../components/SignInForm';
+import { handleSignInSubmit } from '../components/Validate';
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
@@ -10,31 +11,8 @@ const SignIn = () => {
     
     const navigate = useNavigate();
 
-    const validEmail = 'user@example.com';
-    const validPassword = 'password456';
-    const EMAIL_REGEXP = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!email) {
-            setError('Email is required');
-            return;
-        }
-        if (!password) {
-            setError('Password is required');
-            return;
-        }
-        if (!EMAIL_REGEXP.test(email)) {
-            setError('Incorrect email format');
-            return;
-        }
-        if (email === validEmail && password === validPassword) {
-                localStorage.setItem('userRole', 'user');
-                localStorage.setItem('isAuthenticated', true);
-            navigate('/dashboard');
-        } else {
-            setError('Incorrect email or password');
-        }
+        handleSignInSubmit(e, email, password, setError, navigate, 'user');
     };
 
     return (

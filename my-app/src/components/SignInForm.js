@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/SignInForm.css';
 import { Link } from 'react-router-dom';
 
-const SignInForm = ({ handleSubmit, error, email, password, setEmail, setPassword, linkPath, linkTitle}) => {
+const SignInForm = ({ handleSubmit, error, email, password, setEmail, setPassword, linkPath, linkTitle }) => {
     return (
         <div className='wrapper'>
             <form onSubmit={handleSubmit} className='form'>

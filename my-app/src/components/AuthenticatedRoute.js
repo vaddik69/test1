@@ -3,13 +3,13 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const AuthenticatedRoute = () => {
     const userRole = localStorage.getItem('userRole');
-    const isAuth = localStorage.getItem('isAuth') === 'true';
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
 
     if (userRole === 'user') {
-        return isAuth ? <Outlet /> : <Navigate to="/signin" />;
+        return isAuthenticated ? <Outlet /> : <Navigate to="/signin" />;
     }
     else if (userRole === 'admin') {
-        return isAuth ?  <Outlet /> : <Navigate to="/admin/signin" />;
+        return isAuthenticated ?  <Outlet /> : <Navigate to="/admin/signin" />;
     }
 };
 

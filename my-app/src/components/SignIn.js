@@ -29,7 +29,7 @@ const SignIn = () => {
         }
         if (email === validEmail && password === validPassword) {
                 localStorage.setItem('userRole', 'user');
-                localStorage.setItem('isAuth', true);
+                localStorage.setItem('isAuthenticated', true);
             navigate('/dashboard');
         } else {
             setError('Incorrect email or password');

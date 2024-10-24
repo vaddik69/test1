@@ -29,7 +29,7 @@ const AdminSignIn = () => {
         }
         if (email === validEmail && password === validPassword) {
                 localStorage.setItem('userRole', 'admin');
-                localStorage.setItem('isAuth', true);
+                localStorage.setItem('isAuthenticated', true);
             navigate('/admin/dashboard');
         } else {
             setError('Incorrect email or password');

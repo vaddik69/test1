@@ -8,7 +8,7 @@ const Header = ({ title, logoutPath }) => {
     const handleLogout = (e) => {
         e.preventDefault();
 
-        localStorage.setItem('isAuth', false);
+        localStorage.setItem('isAuthenticated', false);
          
         navigate(logoutPath);
     }

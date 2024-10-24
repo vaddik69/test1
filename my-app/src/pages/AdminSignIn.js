@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import '../css/AdminSignIn.css'
+import '../css/AdminSignIn.css';
+import SignInForm from '../components/SignInForm';
 
 const AdminSignIn = () => {
     const [email, setEmail] = useState('');
@@ -37,31 +38,15 @@ const AdminSignIn = () => {
     };
 
     return (
-        <div className='wrapper'>
-            <form onSubmit={handleSubmit} className='form'>
-                <h1>Sign In</h1>
-
-                {error && <p className='error-msg'>{error}</p>}
-                
-                <div className='input-box' >
-                    <input type='text' placeholder='E-mail' value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onFocus={(e) => e.target.setSelectionRange(email.length, email.length)} />
-                </div>
-
-                <div className='input-box' >
-                    <input type="password" placeholder="Password" value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    onFocus={(e) => e.target.setSelectionRange(password.length, password.length)} />
-                </div>
-
-                <button type="submit" disabled={!email || !password}>
-                    Sign In
-                </button>
-
-                <Link className='link-user' to='/signin'>Sign in as user</Link>
-            </form>
-        </div>
+        <SignInForm
+         handleSubmit={handleSubmit}
+         error={error}
+         email={email}
+         password={password}
+         setEmail={setEmail}
+         setPassword={setPassword} 
+         linkPath='/signin'
+         linkTitle='Sign in as user' />
     );
 };
 

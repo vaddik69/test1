@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Dashboard.css';
+import '../css/DashboardHeader.css';
 
 const Header = ({ title, onSignOut }) => {
     return (

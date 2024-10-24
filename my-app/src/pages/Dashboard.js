@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/Header.js';
+import Header from '../components/DashboardHeader.js';
 import { useNavigate } from 'react-router-dom';
 import '../css/Dashboard.css';
 
@@ -13,9 +13,9 @@ const Dashboard = () => {
     }
 
     return (
-        <div>
-           <Header title='Dashboard' onSignOut={handleSignOut} />
-        </div>
+           <Header 
+            title='Dashboard' 
+            onSignOut={handleSignOut} />
     );
 };
 

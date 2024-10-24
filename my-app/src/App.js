@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import SignIn from './components/SignIn';
-import Dashboard from './components/Dashboard';
-import AdminSignIn from './components/AdminSignIn';
-import AdminDashboard from './components/AdminDasboard';
+import SignIn from './pages/SignIn';
+import Dashboard from './pages/Dashboard';
+import AdminSignIn from './pages/AdminSignIn';
+import AdminDashboard from './pages/AdminDasboard';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import AnonymousRoute from './components/AnonymousRoute';
 

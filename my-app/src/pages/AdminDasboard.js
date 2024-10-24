@@ -1,22 +1,22 @@
 import React from 'react';
-import Header from './Header';
 import { useNavigate } from 'react-router-dom';
-import '../css/Dashboard.css';
+import '../css/AdminDashboard.css';
+import Header from '../components/Header.js';
 
-const Dashboard = () => {
+const AdminDashboard = () => {
     const navigate = useNavigate();
 
     const handleSignOut = (e) => {
         e.preventDefault();
         localStorage.setItem('isAuthenticated', false);
-        navigate('/signin');
+        navigate('/admin/signin');
     }
 
     return (
         <div>
-           <Header title='Dashboard' onSignOut={handleSignOut} />
+            <Header title='Admin Dashboard' onSignOut={handleSignOut} />
         </div>
     );
 };
 
-export default Dashboard;
+export default AdminDashboard;

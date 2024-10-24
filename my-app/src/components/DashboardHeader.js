@@ -8,7 +8,7 @@ const Header = ({ title, onSignOut }) => {
 
         <form onSubmit={onSignOut}>
             <button type='submit'>
-                Sign Out
+                Sign <br /> Out
             </button>
         </form>
     </header>

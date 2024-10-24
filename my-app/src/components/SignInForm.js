@@ -28,7 +28,7 @@ const SignInForm = ({ handleSubmit, error, email, password, setEmail, setPasswor
                     onFocus={(e) => e.target.setSelectionRange(password.length, password.length)} />
                 </div>
 
-                <button type="submit" disabled={!email || !password}>
+                <button type="submit" className='signin-button' disabled={!email || !password}>
                     Sign In
                 </button>
 
